@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mongodb1": {
+      "containerPorts": "27017:27017",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "mongodb",
+      "containerImage": "mongo",
+      "type": "mongodb.container",
+      "connectionId": "local",
+      "dynamicId": null
+    },
+    "rabbitmq1": {
+      "containerPorts": "5672:5672,15672:15672",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "rabbitmq",
+      "containerImage": "rabbitmq:3-management-alpine",
+      "type": "rabbitmq.container",
+      "connectionId": "amqp",
+      "dynamicId": null
+    }
+  }
+}

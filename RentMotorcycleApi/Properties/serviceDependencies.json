@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets"
+    },
+    "mongodb1": {
+      "type": "mongodb",
+      "connectionId": "local",
+      "dynamicId": null
+    },
+    "rabbitmq1": {
+      "type": "rabbitmq",
+      "connectionId": "amqp",
+      "dynamicId": null
+    }
+  }
+}
