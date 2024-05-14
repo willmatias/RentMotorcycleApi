@@ -1,4 +1,4 @@
-- ## Sobre a aplicação:
+# Sobre a aplicação:
   - Essa é uma api para consultar e realizar cadastros e aluguel de moto.
 # Principais tecnologias
  - Aplicação feita em .net 8
