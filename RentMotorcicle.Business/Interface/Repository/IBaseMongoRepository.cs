@@ -22,9 +22,9 @@ namespace RentMotorcycle.Business.Interface.Repository
         Task InsertAsync(T entity);
 
         Task UpdateAsync(ObjectId id, T entity);
-        Task UpdateFieldAsync<TField>(ObjectId id, Expression<Func<T, TField>> field, TField value);
+        Task<UpdateResult> UpdateFieldAsync<TField>(ObjectId id, Expression<Func<T, TField>> field, TField value);
 
-        Task DeleteAsync(ObjectId id);
+        Task<DeleteResult> DeleteAsync(ObjectId id);
 
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(ObjectId id);

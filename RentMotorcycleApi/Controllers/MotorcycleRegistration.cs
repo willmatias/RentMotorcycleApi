@@ -69,8 +69,11 @@ namespace RentMotorcycleApi.Controllers
         {
             try
             {
-                await _motorsService.UpdateMotor(motoId, placa).ConfigureAwait(false);
-                return Ok("Moto atualizada com sucesso");
+                var result = await _motorsService.UpdateMotor(motoId, placa).ConfigureAwait(false);
+                if (result.ModifiedCount >= 1)
+                    return Ok("Moto atualizada com sucesso");
+                else
+                    return BadRequest("Moto não encontrada");
             }
             catch (Exception ex)
             {
@@ -86,8 +89,11 @@ namespace RentMotorcycleApi.Controllers
         {
             try
             {
-                await _motorsService.DeleteMotor(motoId).ConfigureAwait(false);
-                return Ok("Moto Deletada com sucesso");
+                var result = await _motorsService.DeleteMotor(motoId).ConfigureAwait(false);
+                if (result.DeletedCount >= 1)
+                    return Ok("Moto Deletada com sucesso");
+                else
+                    return BadRequest("Moto não encontrada");
             }
             catch (Exception ex)
             {

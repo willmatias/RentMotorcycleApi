@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RentMotorcycle.Business.Interface.Security;
 using RentMotorcycle.Business.Interface.Service;
 using RentMotorcycle.Business.Models.Param;
-using RentMotorcycle.Business.Services;
 
 namespace RentMotorcycleApi.Controllers
 {

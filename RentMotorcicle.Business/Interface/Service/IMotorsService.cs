@@ -1,4 +1,5 @@
-﻿using RentMotorcycle.Business.Models.Documents;
+﻿using MongoDB.Driver;
+using RentMotorcycle.Business.Models.Documents;
 using RentMotorcycle.Business.Models.Param;
 
 namespace RentMotorcycle.Business.Interface.Service
@@ -9,7 +10,7 @@ namespace RentMotorcycle.Business.Interface.Service
         Task<bool> IsUniquePlaca(string placa);
 
         Task<Motors> InsertNewMotors(MotorcycleModel motorcycleModel);
-        Task UpdateMotor(string motoId, string placa);
-        Task DeleteMotor(string motoId);
+        Task<UpdateResult> UpdateMotor(string motoId, string placa);
+        Task<DeleteResult> DeleteMotor(string motoId);
     }
 }

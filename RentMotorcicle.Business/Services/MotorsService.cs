@@ -48,16 +48,15 @@ namespace RentMotorcycle.Business.Services
             return motors;
         }
 
-        public async Task UpdateMotor(string motoId, string placa)
+        public async Task<UpdateResult> UpdateMotor(string motoId, string placa)
         {
             Expression<Func<Motors, string?>> fieldExpression = x => x.Placa;
-            await _mongoClient.GetRepository<Motors>().UpdateFieldAsync(ObjectId.Parse(motoId), fieldExpression, placa).ConfigureAwait(false);
+            return await _mongoClient.GetRepository<Motors>().UpdateFieldAsync(ObjectId.Parse(motoId), fieldExpression, placa).ConfigureAwait(false);
         }
 
-        public async Task DeleteMotor(string motoId)
-        {
-            //validar se existe alguma locação para a moto informada
-            await _mongoClient.GetRepository<Motors>().DeleteAsync(ObjectId.Parse(motoId)).ConfigureAwait(false);
+        public async Task<DeleteResult> DeleteMotor(string motoId)
+        {   
+           return await _mongoClient.GetRepository<Motors>().DeleteAsync(ObjectId.Parse(motoId)).ConfigureAwait(false);
         }
     }
 }

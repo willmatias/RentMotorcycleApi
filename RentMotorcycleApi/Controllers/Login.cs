@@ -22,7 +22,7 @@ namespace RentMotorcycleApi.Controllers
             {
                 if(!ModelState.IsValid) return BadRequest(ModelState);
 
-                (string mensagem, bool status) = await _loginService.Login(user.Email, user.Password).ConfigureAwait(false);
+                (string mensagem, bool status) = await _loginService.Login(user?.Email, user?.Password).ConfigureAwait(false);
 
                 if (status)
                     return Ok(mensagem);
@@ -35,6 +35,5 @@ namespace RentMotorcycleApi.Controllers
                 return BadRequest($"Excessão ao tentar logar na plataforma, ex: {ex.Message}");
             }
         }
-        
     }
 }

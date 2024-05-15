@@ -56,9 +56,8 @@ namespace RentMotorcycle.Business.Services
             return custoTotal;
         }
 
-        public async Task<(string mensagem, bool status)> InsertNewRentAMotorcycle(Models.Param.RentAMotorcycleParam rentAMotorcycle)
-        {
-            var mensagem = "Aluguel de moto cadastrado com sucesso";
+        public async Task<(string mensagem, bool status)> InsertNewRentAMotorcycle(RentAMotorcycleParam rentAMotorcycle)
+        {            
             var user = await _userService.GetUserById(_identity.UserId()).ConfigureAwait(false);
 
             if (!EntregadorEstaHabilitadoNaCategoriaA(user.TipoCnh)) return ("Usuário fora da catagoria", false);

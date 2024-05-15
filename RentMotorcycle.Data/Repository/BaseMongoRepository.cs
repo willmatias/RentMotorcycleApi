@@ -87,16 +87,16 @@ namespace RentMotorcycle.Data.Repository
                 .ReplaceOneAsync(Builders<T>.Filter.Eq("_id", id), entity);
         }
 
-        public async Task UpdateFieldAsync<TField>(ObjectId id, Expression<Func<T, TField>> field, TField value)
+        public async Task<UpdateResult> UpdateFieldAsync<TField>(ObjectId id, Expression<Func<T, TField>> field, TField value)
         {
             var update = Builders<T>.Update.Set(field, value);
-            await _mongoContext.GetCollection<T>()
+            return await _mongoContext.GetCollection<T>()
                 .UpdateOneAsync(Builders<T>.Filter.Eq("_id", id), update);
         }
 
-        public async Task DeleteAsync(ObjectId id)
+        public async Task<DeleteResult> DeleteAsync(ObjectId id)
         {
-            await _mongoContext.GetCollection<T>()
+            return await _mongoContext.GetCollection<T>()
                 .DeleteOneAsync(Builders<T>.Filter.Eq("_id", id));
         }
 

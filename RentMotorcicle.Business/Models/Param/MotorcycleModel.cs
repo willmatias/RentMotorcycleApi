@@ -3,15 +3,13 @@
 namespace RentMotorcycle.Business.Models.Param
 {
     public class MotorcycleModel
-    {
-        [Required]
-        public int Identificador { get; set; }
-        [Required]
-        public int Ano { get; set; }
-        [Required]
-        public string Modelo { get; set; }
-
-        [Required]
-        public string Placa { get; set; }
+    {        
+        public required int Identificador { get; set; }
+        
+        public required int Ano { get; set; }
+        
+        public required string Modelo { get; set; }
+        
+        public required string Placa { get; set; }
     }
 }
